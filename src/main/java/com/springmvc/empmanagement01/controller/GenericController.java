@@ -15,40 +15,40 @@ public class GenericController
 {
 	@Autowired
 	private EmpDao empDao;
-	
-	private static Logger log = Logger.getLogger(SessionListener.class);  
-	  
+
+	private static Logger log = Logger.getLogger(SessionListener.class);
+
 	static
 	{
 		log.info("SessionListener contextInitialized!");
 	}
-	
+
 	@RequestMapping("/hello")
-    public String hello()
-    {
-		
+	public String hello()
+	{
+
 		System.out.println("starting hello....");
 
-    	return "hello";
-    }
-	
-	@RequestMapping("/emp")
+		return "hello";
+	}
+
+	@RequestMapping("/addempdemo")
 	public String showEmp(Model model, Long eid)
 	{
-		if(eid == null)
+		if (eid == null)
 		{
-		    eid = 1001l;
+			eid = 1001l;
 		}
-		
+
 		System.out.println("starting showEmp....");
 		long id = 1000;
 		Emp emp = empDao.queryEmpById(eid);
-		
-	    model.addAttribute("eid", emp.getEid());
-	    model.addAttribute("ename", emp.getEname());
-	    model.addAttribute("dept", emp.getDeptName());
+
+		model.addAttribute("eid", emp.getEid());
+		model.addAttribute("ename", emp.getEname());
+		model.addAttribute("dept", emp.getDeptName());
 
 		return "testEmpDao";
 	}
-	
+
 }

@@ -3,7 +3,7 @@ package main.java.com.springmvc.empmanagement01.entity;
 import org.springframework.stereotype.Component;
 
 /**
- * 部门信息
+ * 閮ㄩ棬淇℃伅
  * @author Administrator
  *
  */
@@ -11,12 +11,12 @@ import org.springframework.stereotype.Component;
 public class Dept
 {
 	/*
-	 * 部门编号
+	 * 閮ㄩ棬缂栫爜
 	 */
 	private long did;
 
 	/*
-	 * 部门名称
+	 * 閮ㄩ棬鍚嶇О
 	 */
 	private String dname;
 

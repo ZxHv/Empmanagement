@@ -4,7 +4,7 @@ import java.util.Date;
 import org.springframework.stereotype.Component;
 
 /**
- * 职员信息
+ * 鍛樺伐淇℃伅
  * 
  * @author Administrator
  * 
@@ -13,37 +13,37 @@ import org.springframework.stereotype.Component;
 public class Emp
 {
 	/*
-	 * 编号
+	 * 鍛樺伐缂栫爜
 	 */
 	private long eid;
 
 	/*
-	 * 姓名
+	 * 鍛樺伐濮撳悕
 	 */
 	private String ename;
 
 	/*
-	 * 所属部门ID
+	 * 閮ㄩ棬ID
 	 */
 	private long did;
 	
 	/*
-	 * 部门名称
+	 * 閮ㄩ棬鍚嶇О
 	 */
 	private String deptName;
 
 	/*
-	 * 年龄
+	 * 骞撮緞
 	 */
 	private int age;
 
 	/*
-	 * 性别
+	 * 鎬у埆
 	 */
 	private String gender;
 
 	/*
-	 * 入职日期
+	 * 鍏ヨ亴鏃ユ湡
 	 */
 	private Date workDate;
 

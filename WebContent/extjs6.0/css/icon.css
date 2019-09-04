@@ -1,0 +1,19 @@
+.user{
+	background:url('../images/users.ico')no-repeat center center;
+}
+
+.add{
+	background:url('../images/user_add.ico')no-repeat center center;
+}
+
+.edit{
+	background:url('../images/user_edit.ico')no-repeat center center;
+}
+
+.delete{
+	background:url('../images/user_delete.ico')no-repeat center center;
+}
+
+.reload{
+	background:url('../images/table_refresh.ico')no-repeat center center;
+}

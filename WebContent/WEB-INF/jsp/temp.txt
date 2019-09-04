@@ -1,0 +1,30 @@
+    <div id="formDiv" align="center">
+            <form id="empForm" action="" method="post" >
+                <table class="table table-bordered">
+                    <tr>
+                        <td><a href="add">添加员工</a></td>
+                    </tr>
+                    <tr>
+						<th>员工姓名</th>
+						<th>部门</th>
+						<th>年龄</th>
+						<th>性别</th>
+						<th>入职日期</th>
+						<th>操作</th>
+					</tr>
+					<c:if test="${allEmpList!=null}">
+					    <c:forEach var="emp" items="${allEmpList}">
+					        <tr name="emp">
+					            <td>${emp.ename}</td>
+					            <td>${emp.deptName}</td>
+					            <td>${emp.age}</td>
+					            <td>${emp.gender}</td>
+					            <td><fmt:formatDate value="${emp.workDate }"  pattern="yyyy-MM-dd" /></td>
+					            <td><a href="upEmpById/${emp.eid}">修改</a>/<a href="javascript:void(0)" onclick="del(${emp.eid});">删除</a></td>
+					        </tr>
+					    </c:forEach>
+					
+					</c:if>
+                </table>
+            </form>
+        </div>
