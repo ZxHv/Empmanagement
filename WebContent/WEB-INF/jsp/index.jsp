@@ -165,7 +165,8 @@
                                       waitMsg: '正在提交信息...', 
         		        			  success: function(form, action) {
                                                if (action.result == true) {  
-        		        					       Ext.MessageBox.alert("信息提示","保存成功!");  
+        		        					       Ext.MessageBox.alert("信息提示","保存成功!"); 
+        		        					       addFormPanel.getForm().reset();
         		        					       addUser.close(); //关闭窗口  
         		        					       myStore.reload();
         		        					   } else {
@@ -217,6 +218,7 @@
             		     var store = grid.getStore();
             		     var rowlength=store.getCount(); var rowlength=store.getCount();
             		     var params='';
+            		                 		     
             		     //遍历所有记录 
             		     for(var i = rowlength - 1; i >= 0; i--)
             		     {
@@ -224,23 +226,31 @@
             		    	 if(selmodels.isSelected(i))
             		    	 {
             		    	     //获取索引所对应的模型下的值  
-            		             params+=store.getAt(i).get('id')+',';
+            		             params += store.getAt(i).get('eid') + ',';;
             		             //移除对应索引下的值  
             		             store.remove(store.getAt(i));
             		    	 }
             		     }
             		     //处理数据 
-            		     urlparams=params.slice(0,params.lastIndexOf(','));
-            		     Ext.Msg.alert('参数',urlparams);
+            		     //urlparams=params.slice(0,params.lastIndexOf(','));
+            		     
             		     Ext.Ajax.request({  
             		    	 //发送ajax请求   
-            		    	 url : 'http://localhost:8080/EmpManagement01/delEmp',  
-            		    	 params: {  objectids: urlparams  },  
-            		    	 success: function(response, opts) {  
-            		    	    grid.view.refresh();  
+            		    	 url : 'http://localhost:8080/EmpManagement01/delBatchEmp',  
+            		    	 params: {  eids: params  },  
+            		    	 success: function(response) {
+            		    	     var text = response.responseText;
+            		    	     grid.view.refresh();
+            		    	     if(text == "true")
+            		    	     {
+            		    	    	 Ext.Msg.alert('成功','删除成功!');
+            		    	     } else
+                                 {
+            		    	    	 Ext.Msg.alert('失败','删除失败!');
+                                 }
             		    	 },  
             		    	 failure:function(response){  
-            		    	    //Ext.Msg.alert('失败',response.responseText);  
+            		    	     Ext.Msg.alert('失败','删除失败!');  
             		    	 }  
             		     });
             		 }
