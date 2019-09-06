@@ -168,15 +168,32 @@ public class EmpController
 	}
 	
 	@RequestMapping("/updateEmp")
-	public String updateEmp(int eid, HttpSession session)
+	@ResponseBody
+	public Object updateEmp(String eid, Emp updateEmp, HttpSession session)
 	{
-		Emp emp = new Emp();
-
-		emp.setEid(eid);
+		if(eid==null || eid == "" || eid.length() == 0)
+		{
+			System.out.println("eid is null!!!!!!!");
+			return false;
+		}
 		
-		int updateEmp = empService.updateEmp(emp);
+		Emp emp2Update = getEmpById(Long.parseLong(eid));//获取待更新的对象
+		
+		System.out.println("uodateEmpEid = " + updateEmp.getEid());
+		
+		updateEmp.setEid(emp2Update.getEid());
+		
+		int updateResult = empService.updateEmp(updateEmp);
 
-		return "updateEmp";
+		System.out.println("updateResult==" + updateResult);
+		
+		if(updateResult==1)//删除成功
+		{
+			return true;
+		} else 
+		{
+			return false;
+		}
 	}
 
 }

@@ -74,13 +74,12 @@ public class EmpDaoTest extends BaseTest
     }
 	
 	@Test
-	@Ignore
 	public void updateEmpTest()
 	{
-		long eid = 6667;
+		long eid = 6705;
 		Emp emp = empDao.queryEmpById(eid);
 		
-		emp.setEname("小EEE");
+		emp.setEname("rrrt");
 		
 		int updateEmp = empDao.updateEmp(emp);
 		
@@ -88,6 +87,7 @@ public class EmpDaoTest extends BaseTest
 	}
 	
 	@Test
+	@Ignore
 	public void getAllDept()
 	{
 		List<Dept> allDept = empDao.getAllDept();
