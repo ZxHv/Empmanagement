@@ -24,7 +24,7 @@ public class EmpController
 	@Resource
 	private EmpService empService;
 
-	@RequestMapping("index.jsp")
+	@RequestMapping("index")
 	public String index()
 	{
 		return "redirect:/listEmp";

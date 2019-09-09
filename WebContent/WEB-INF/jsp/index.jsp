@@ -91,7 +91,7 @@
         		       {xtype: 'button', text: '新增',iconCls:'add',border:false, handler:function(){addUser.show();}},
         		       {xtype: 'button', text: '编辑',iconCls:'edit',border:false, handler:function(){editEmp(this);}},
         		       {xtype: 'button', text: '删除',iconCls:'delete',border:false, handler:function(){del(this);}},
-        		       {xtype: 'button', text: '刷新',iconCls:'reload',border:false, handler:function(){}}
+        		       {xtype: 'button', text: '刷新',iconCls:'reload',border:false, handler:function(){myStore.reload();}}
         		],
         		bbar:{xtype: 'pagingtoolbar', displayInfo: true, store: myStore},//分页条
         		columns:[

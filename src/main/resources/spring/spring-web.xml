@@ -28,4 +28,6 @@
 
 	<!-- 4.扫描web相关的bean -->
 	<context:component-scan base-package="main.java.com.springmvc.empmanagement01.controller" />
+	
+	
 </beans>
